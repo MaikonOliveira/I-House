@@ -1,4 +1,4 @@
-//Controlador de reles e temperatura através do bluetooth
+//Controlador de reles e temperatura através do WI-FI e Firebase.
 //Desenvolvido por Maikon Oliveira
 
 #include <LiquidCrystal_I2C.h> 
