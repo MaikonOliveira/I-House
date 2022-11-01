@@ -13,16 +13,16 @@
 #define intervalo 500
 
 // Define SSID e senha para rede de internet.
-#define WIFI_SSID "Maikon"
-#define WIFI_PASSWORD "infinity356"
+#define WIFI_SSID " "
+#define WIFI_PASSWORD " "
 
 // Define API Key e id do banco de dados.
-#define API_KEY "AIzaSyAhxG6RsUstAO9CRZd4k38yP1UV8jswH30"
-#define FIREBASE_ID "ihouse-fc98b"
+#define API_KEY " "
+#define FIREBASE_ID " "
 
 // Define e-mail e senha para autenticação do firebase.
-#define USER_EMAIL "esp32@gmail.com"
-#define USER_PASS "IHouseesp32"
+#define USER_EMAIL " "
+#define USER_PASS " "
 
 FirebaseData fbdo;
 FirebaseAuth auth;
