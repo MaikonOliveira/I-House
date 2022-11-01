@@ -39,24 +39,11 @@ const long interval = intervalo;
 String doc_path_reles = "IHouse/reles";
 String doc_path_clima = "IHouse/clima";
 
-int state1 = 0;
-int state2 = 0;
-int state3 = 0;
-int state4 = 0;
-int state5 = 0;
-int state6 = 0;
-int state7 = 0;
-int state8 = 0;
-int aux=0;
-int count=0;
+int state1=0, state2=0, state3=0, state4=0, state5=0, state6=0, state7=0, state8=0, aux=0, count=0;
 
-float u = 0;
-float t = 0;
-float somaTemp=0;
-float somaUmid=0;
+String rele01, rele02, rele03, rele04, rele05, rele06, rele07, rele08;
 
-float tempVet[100];
-float umidVet[100];
+float u=0, t=0, somaTemp=0, somaUmid=0, tempVet[100], umidVet[100];
 
 void setup() {
   Serial.begin(115200);
@@ -65,19 +52,13 @@ void setup() {
   
   // Inicializa conexão wi-fi.
   initWifi();
-
   config.api_key = API_KEY;
-
   auth.user.email = USER_EMAIL;
   auth.user.password = USER_PASS;
-
   Firebase.reconnectWiFi(true);
   fbdo.setResponseSize(2048);
-  
   config.token_status_callback = tokenStatusCallback;  
-  
   Firebase.begin(&config, &auth);
-  
   Serial.println("Getting User UID");
   while ((auth.token.uid) == "") {
     Serial.print('.');
@@ -116,28 +97,28 @@ void loop() {
  String fbdo = getRele();
  
  //Liga ou desliga os relés
- String rele01 = getValue("rele01", fbdo);
+ rele01 = getValue("rele01", fbdo);
  if(rele01 == "A" &&  state1 == 0) rele(1);
  else if(rele01 == "B" &&  state1 == 1) rele(1);
- String rele02 = getValue("rele02", fbdo);
+ rele02 = getValue("rele02", fbdo);
  if(rele02 == "A" &&  state2 == 0) rele(2);
  else if(rele02 == "B" &&  state2 == 1) rele(2);
- String rele03 = getValue("rele03", fbdo);
+ rele03 = getValue("rele03", fbdo);
  if(rele03 == "A" &&  state3 == 0) rele(3);
  else if(rele03 == "B" &&  state3 == 1) rele(3);
- String rele04 = getValue("rele04", fbdo);
+ rele04 = getValue("rele04", fbdo);
  if(rele04 == "A" &&  state4 == 0) rele(4);
  else if(rele04 == "B" &&  state4 == 1) rele(4);
-  String rele05 = getValue("rele05", fbdo);
+ rele05 = getValue("rele05", fbdo);
  if(rele05 == "A" &&  state5 == 0) rele(5);
  else if(rele05 == "B" &&  state5 == 1) rele(5);
-  String rele06 = getValue("rele06", fbdo);
+ rele06 = getValue("rele06", fbdo);
  if(rele06 == "A" &&  state6 == 0) rele(6);
  else if(rele06 == "B" &&  state6 == 1) rele(6);
-  String rele07 = getValue("rele07", fbdo);
+ rele07 = getValue("rele07", fbdo);
  if(rele07 == "A" &&  state7 == 0) rele(7);
  else if(rele07 == "B" &&  state7 == 1) rele(7);
-  String rele08 = getValue("rele08", fbdo);
+ rele08 = getValue("rele08", fbdo);
  if(rele08 == "A" &&  state8 == 0) rele(8);
  else if(rele08 == "B" &&  state8 == 1) rele(8);
  
